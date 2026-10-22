@@ -1,17 +1,15 @@
 /**
- *
  * Module: HTML/CSS
  * Lesson: 1
- * 
  */
 
- :root {
-   --grey-dark: #292b2c;
-   --grey-light: #e4e4e4;
-   --orange-dark: #c05326;
-   --orange-light: #f7eae4;
-   --white: #fff;
- }
+:root {
+  --grey-dark: #292b2c;
+  --grey-light: #e4e4e4;
+  --orange-dark: #c05326;
+  --orange-light: #f7eae4;
+  --white: #fff;
+}
 
 body {
   margin: 0;
@@ -24,7 +22,7 @@ button {
   font-size: 1rem;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -63,6 +61,7 @@ p {
 .navigation__list {
   display: flex;
   list-style: none;
+  gap: 2rem; /* <--- Ajoutez cette ligne ici */
 }
 
 .navigation__item {
@@ -75,7 +74,6 @@ p {
   text-transform: uppercase;
   text-decoration: none;
 }
-
 
 /* Text styles */
 
@@ -92,11 +90,36 @@ p {
   border-left-color: var(--orange-dark);
 }
 
-
 /* Buttons */
 
-  /* INSERT BUTTON STYLES HERE */
+.btn {
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+}
 
+.btn-primary {
+  background-color: var(--orange-dark);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: #b5471d;
+}
+
+.btn-secondary {
+  background-color: var(--white);
+  color: var(--orange-dark);
+  border: 2px solid var(--orange-dark);
+}
+
+.btn-secondary:hover {
+  background-color: var(--orange-light);
+}
 
 /* Content */
 
@@ -120,10 +143,13 @@ p {
 /* hero */
 
 .hero {
-  background-image: url("header-bike.jpg");
+  background-image: url("../images/header-bike.jpg");
   background-color: var(--grey-light);
+  background-size: cover;
+  background-position: center;
+  padding: 4rem 2rem;
+  color: var(--white);
 }
-
 .hero h1 {
   margin-bottom: 1rem;
   font-size: 2.5rem;
@@ -133,7 +159,6 @@ p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
 }
-
 
 /* Headings */
 
@@ -158,13 +183,29 @@ p {
   background: var(--orange-dark);
 }
 
-
 /* Article */
 
-.article {
-  margin-bottom: 1rem;
+.articles-container {
+    display: flex;
+    gap: 2rem;
 }
 
+.articles-container .article {
+    flex: 1; /* <-- Très important : force les 2 cartes à faire la même largeur */
+}
+
+.sidebar .article {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.article {
+    margin-bottom: 1rem;
+    border: 1px solid var(--grey-light);
+    border-radius: 4px;
+    padding: 1.5rem;
+}
 .article__title {
   margin-bottom: 0.5rem;
   font-size: 1rem;
@@ -219,6 +260,13 @@ p {
   min-width: 350px;
 }
 
+.facebook-link {
+  color: var(--orange-dark);
+  display: block;        /* <-- Transforme le lien en bloc */
+  text-align: right;     /* <-- Aligne le texte à droite */
+  margin-top: 1rem;      /* <-- Ajoute une petite marge au-dessus */
+}
+
 /* Footer */
 
 .footer {
@@ -245,6 +293,20 @@ p {
   }
 
   .main {
+    flex: 2; /* <-- Donne 2/3 de la largeur à la zone principale */
     padding-right: 2rem;
   }
+
+  .sidebar {
+    flex: 1; /* <-- Donne 1/3 de la largeur à la barre latérale */
+  }
+  /* Bonus: hover effects */
+.navigation__link:hover {
+  color: var(--orange-dark); /* Lien du menu devient orange au survol */
+}
+
+.btn-primary:hover {
+  background-color: var(--white);
+  color: var(--orange-dark);
+  border: 2px solid var(--orange-dark); /* Inverse les couleurs du bouton principal */
 }
